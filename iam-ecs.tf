@@ -9,7 +9,7 @@ data aws_iam_policy_document "ecs_assume" {
     effect  = "Allow"
     sid     = ""
     principals {
-      type        = "service"
+      type        = "Service"
       identifiers = ["ec2.amazonaws.com"]
     }
   }
