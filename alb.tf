@@ -22,7 +22,7 @@ resource aws_lb ecs {
   }
 }
 
-resource aws_alb_listener "ecs_https" {
+resource aws_lb_listener "ecs_https" {
   count             = var.alb ? 1 : 0
   load_balancer_arn = aws_lb.ecs[0].arn
   port              = 443
@@ -36,7 +36,7 @@ resource aws_alb_listener "ecs_https" {
   }
 }
 
-resource aws_alb_listener "ecs_http_redirect" {
+resource aws_lb_listener "ecs_http_redirect" {
   count             = var.alb ? 1 : 0
   load_balancer_arn = aws_lb.ecs[0].arn
   protocol          = "HTTP"
@@ -53,7 +53,7 @@ resource aws_alb_listener "ecs_http_redirect" {
   }
 }
 
-resource aws_alb_listener "ecs_test_https" {
+resource aws_lb_listener "ecs_test_https" {
   count             = var.alb ? 1 : 0
   load_balancer_arn = aws_lb.ecs[0].arn
   protocol          = "HTTPS"
@@ -67,7 +67,7 @@ resource aws_alb_listener "ecs_test_https" {
   }
 }
 
-resource aws_alb_listener "ecs_tes_http_redirect" {
+resource aws_lb_listener "ecs_tes_http_redirect" {
   count             = var.alb ? 1 : 0
   load_balancer_arn = aws_lb.ecs[0].arn
   port              = 8080

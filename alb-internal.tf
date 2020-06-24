@@ -23,7 +23,7 @@ resource aws_lb "ecs_internal" {
   }
 }
 
-resource aws_alb_listener "ecs_https_internal" {
+resource aws_lb_listener "ecs_https_internal" {
   count             = var.alb_internal ? 1 : 0
   load_balancer_arn = aws_lb.ecs_internal[0].arn
   port              = 443
@@ -37,7 +37,7 @@ resource aws_alb_listener "ecs_https_internal" {
   }
 }
 
-resource aws_alb_listener "ecs_test_https_internal" {
+resource aws_lb_listener "ecs_test_https_internal" {
   count             = var.alb_internal ? 1 : 0
   load_balancer_arn = aws_lb.ecs_internal[0].arn
   port              = 8443
